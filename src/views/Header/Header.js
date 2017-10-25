@@ -36,7 +36,6 @@ type HeaderState = {
 };
 
 const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 0 : 0;
 const TITLE_OFFSET = Platform.OS === 'ios' ? 70 : 56;
 
 class Header extends React.PureComponent<void, HeaderProps, HeaderState> {
@@ -296,12 +295,10 @@ class Header extends React.PureComponent<void, HeaderProps, HeaderState> {
 
     const { options } = this.props.getScreenDetails(scene);
     const headerStyle = options.headerStyle;
-    const landscapeAwareStatusBarHeight = isLandscape ? 0 : STATUSBAR_HEIGHT;
     const appBarHeight = Platform.OS === 'ios' ? (isLandscape ? 32 : 44) : 56;
     const containerStyles = [
       {
-        // paddingTop: landscapeAwareStatusBarHeight,
-        height: appBarHeight, // + landscapeAwareStatusBarHeight,
+        height: appBarHeight,
       },
       headerStyle,
       style,

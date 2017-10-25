@@ -308,7 +308,10 @@ class Header extends React.PureComponent<void, HeaderProps, HeaderState> {
     ];
 
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView
+        style={styles.container}
+        forceInset={{ top: 'always', bottom: 'never' }}
+      >
         <Animated.View {...rest} style={containerStyles}>
           <View style={styles.appBar}>{appBar}</View>
         </Animated.View>

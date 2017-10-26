@@ -10,10 +10,10 @@ import withCachedChildNavigation from '../../withCachedChildNavigation';
 import type {
   NavigationScreenProp,
   NavigationRoute,
-  NavigationAction,
   NavigationState,
   NavigationRouter,
   NavigationTabScreenOptions,
+  NavigationStackAction,
 } from '../../TypeDefinition';
 
 export type TabViewConfig = {
@@ -43,14 +43,14 @@ type Props = {
   initialLayout?: Layout,
 
   screenProps?: {},
-  navigation: NavigationScreenProp<NavigationState, NavigationAction>,
+  navigation: NavigationScreenProp<NavigationState>,
   router: NavigationRouter<
     NavigationState,
-    NavigationAction,
+    NavigationStackAction,
     NavigationTabScreenOptions
   >,
   childNavigationProps: {
-    [key: string]: NavigationScreenProp<NavigationRoute, NavigationAction>,
+    [key: string]: NavigationScreenProp<NavigationRoute>,
   },
 };
 

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
 import type { Layout } from 'react-native-tab-view/src/TabViewTypeDefinitions';
@@ -17,7 +17,7 @@ import type {
 } from '../../TypeDefinition';
 
 export type TabViewConfig = {
-  tabBarComponent?: ReactClass<*>,
+  tabBarComponent?: React.ComponentType<*>,
   tabBarPosition?: 'top' | 'bottom',
   tabBarOptions?: {},
   swipeEnabled?: boolean,
@@ -34,7 +34,7 @@ export type TabScene = {
 };
 
 type Props = {
-  tabBarComponent?: ReactClass<*>,
+  tabBarComponent?: React.ComponentType<*>,
   tabBarPosition?: 'top' | 'bottom',
   tabBarOptions?: {},
   swipeEnabled?: boolean,
@@ -54,9 +54,7 @@ type Props = {
   },
 };
 
-class TabView extends PureComponent<void, Props, void> {
-  props: Props;
-
+class TabView extends React.PureComponent<Props> {
   _handlePageChanged = (index: number) => {
     const { navigation } = this.props;
     navigation.navigate(navigation.state.routes[index].routeName);
